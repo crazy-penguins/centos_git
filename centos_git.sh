@@ -1,8 +1,10 @@
 #!/bin/bash
 yum -q updateinfo
 yum -y -q install dh-autoreconf curl-devel expat-devel gettext-devel \
-  openssl-devel perl-devel zlib-devel zip wget make gcc
+  openssl-devel perl-devel zlib-devel zip wget make gcc python \
+  python-pip
 yum -y -q install asciidoc xmlto docbook2X
+pip install -q awscli
 mkdir -p /u/downloads
 version=${1:-"2.20.1"}
 printf "Building git %s\n" "${version}"

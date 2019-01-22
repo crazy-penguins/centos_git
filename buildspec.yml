@@ -9,6 +9,6 @@ phases:
       - ./centos_git.sh
       - |
         cd /u/git-${version} \
-          && zip -q -r -m /work/git-${version}.zip . \
-          && aws s3 cp /work/git-${version}.zip s3://dbl-deploy/centos/
+          && zip -q -r -m ${CODEBUILD_SRC_DIR}/git-${version}.zip . \
+          && aws s3 cp ${CODEBUILD_SRC_DIR}/git-${version}.zip s3://dbl-deploy/centos/
 artifacts: {}
