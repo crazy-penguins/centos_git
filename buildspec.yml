@@ -1,0 +1,15 @@
+---
+version: 0.2
+phases:
+  build:
+    commands:
+      - "export version=2.20.1"
+      - "cd ${CODEBUILD_SRC_DIR}"
+      - chmod a+x centos_git.sh
+      - ./centos_git.sh
+      - |
+        cd /u/git-${version} \
+          && zip -q -r -m ${CODEBUILD_SRC_DIR}/git-${version}.zip .
+artifacts:
+  files:
+    - "git-*.zip"
