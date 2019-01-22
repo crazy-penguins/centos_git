@@ -1,9 +1,9 @@
 #!/bin/bash
 yum -q updateinfo
+yum -y -q install epel-release
 yum -y -q install dh-autoreconf curl-devel expat-devel gettext-devel \
-  openssl-devel perl-devel zlib-devel zip wget make gcc python \
-  python-pip
-yum -y -q install asciidoc xmlto docbook2X
+  openssl-devel perl-devel zlib-devel zip wget make gcc python
+yum -y -q install asciidoc xmlto docbook2X autoconf python-pip
 pip install -q awscli
 mkdir -p /u/downloads
 version=${1:-"2.20.1"}
